@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: stone-cloud-oracle
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: |
+      pip install -r requirements.txt
+      cd ui && npm install && npm run build && cd ..
+    startCommand: uvicorn core.app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: AI_ENGINE_MODE
+        value: groq
+      - key: GROQ_API_KEY
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: ELEVENLABS_VOICE_ID
+        value: pNInz6obpgDQGcFmaJgB
+      - key: SENTRY_DSN
+        sync: false

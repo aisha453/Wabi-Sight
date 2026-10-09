@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-void: #060a08;
+  --color-surface-base: #0c140f;
+  --color-surface-elevated: #132018;
+  --color-glass: rgba(14, 26, 19, 0.72);
+  --color-border-subtle: rgba(45, 212, 191, 0.12);
+  --color-border-glow: rgba(45, 212, 191, 0.35);
+  --color-emerald-glow: #2dd4bf;
+  --color-moss-leaf: #4ade80;
+  --color-firefly-gold: #f59e0b;
+  --color-text-bright: #f8fafc;
+  --color-text-body: #cbd5e1;
+  --color-text-muted: #94a3b8;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-void);
+  color: var(--color-text-bright);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom Ambient Aura and Glows */
+@keyframes breathing-pulse {
+  0%, 100% {
+    transform: scale(0.96);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+.animate-breathing {
+  animation: breathing-pulse 4.5s ease-in-out infinite;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--color-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.glass-panel-elevated {
+  background: rgba(19, 32, 24, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-border-glow);
+}
