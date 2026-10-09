@@ -61,17 +61,28 @@ Breath Cadence (s)   Mind & Somatic Cue Audio Guidance
 4. **The Screenless Immersion**: The screen dims to a tranquil near-black view (`#030604`). You place the phone face down in the grass, close your eyes, and breathe with the spoken guidance until a Tibetan singing bowl chime marks the end.
 5. **Nature Scrapbook**: The observation, poetry, and element badge are preserved in an offline field journal.
 
-### 2. Open Innovation Stack & Sponsor Implementations:
-* **Best Use of Gemma ($200 Target)**: Powered by Google's open-weight **Gemma 2** (`gemma2-9b-it` via Groq Cloud acceleration and local Ollama support). Gemma 2 serves as the poetic brain that transforms raw visual geometries into contemplative literature.
-* **Best Use of TabPFN ($200 Target)**: We integrated Prior Labs' **TabPFN** tabular foundation model (`pip install tabpfn`). TabPFN analyzes ecological weather and seasonal data to dynamically predict circadian respiration cycles.
-* **Best Use of ElevenLabs ($100 Target)**: Uses ElevenLabs' newest `eleven_flash_v2_5` model (Voice ID: "Adam") for realistic documentary-style narration, backed by native browser Web Speech API offline fallbacks.
-* **Best Use of Render ($200 Target)**: Fully containerized and deployed via a 1-click [`render.yaml`](https://github.com/aisha453/Wabi-Sight/blob/main/render.yaml) blueprint on Render's free tier.
-* **Best Use of Sentry Agent Tracing ($100 Target)**: Instruments the pipeline with Sentry spans (`tabpfn.forecast`, `vision.analyze`, `gemma.synthesize`) to monitor end-to-end latency.
+### 2. Why Open Innovation Matters:
+* **100% Offline Wilderness Resilience**: Cloud APIs fail deep in forests, canyons, and remote trails without cellular signal. Open-weight models ensure that mindfulness and AI guidance operate independently on edge devices anywhere in nature.
+* **Privacy of Mind & Nature**: Contemplative reflections, nature photos, and personal circadian rhythms remain strictly local. No personal biometric or meditative thoughts are ever shared with corporate ad networks.
+* **Zero Cost Forever**: Open weights and open tools empower anyone, from solo hikers to student environmental clubs, to explore outdoor mindfulness at zero financial cost.
 
-### 3. Why Open Innovation Matters:
-* **100% Offline Trail Independence**: Deep forest ravines and national parks rarely have 5G signal. Proprietary cloud APIs fail in the wild; open-weight models run locally on edge hardware with zero external dependencies.
-* **Privacy of Inner Life**: Meditative reflections, backyard nature snapshots, and personal breath logs belong solely to the user. No personal biometric or location data is ever mined by ad networks.
-* **Zero Cost Forever**: Free open-weights allow anyone, any school outdoor group, and any community nature club to run the software forever at $0.
+---
+
+## 🏆 Prize Categories
+
+This project is submitted for the following challenge tracks and partner categories:
+
+### 🌿 Primary Track: Touch Grass
+The Stone & Cloud Oracle is built specifically to address screen fatigue and get people into physical nature. The application limits screen interaction to under 15 seconds: the user captures an organic pattern and is immediately instructed to place their phone face-down on the grass, close their eyes, and connect with physical reality through circadian breathwork and ambient audio cues.
+
+### 🌟 Featured Sponsor Categories ($200 each):
+* **Best Use of Gemma**: Powered by Google's open-weight **Gemma 2** (`gemma2-9b-it` via Groq Cloud acceleration and local Ollama support). Gemma 2 acts as the poetic naturalist brain, converting raw visual geometries (bark ridges, puddle ripples, cracked clay, leaf veins) into contemplative reflections and somatic grounding cues.
+* **Best Use of TabPFN**: Integrates Prior Labs' **TabPFN** tabular foundation model (`pip install tabpfn`). TabPFN forecasts optimal circadian respiration cycles from multi-variate environmental data (`hour_of_day`, `temperature`, `cloud_cover`, `day_of_year`), harmonizing the user's breathing cadence with real-time natural rhythms.
+* **Best Use of Render**: Fully containerized and hosted live on Render via a 1-click [`render.yaml`](https://github.com/aisha453/Wabi-Sight/blob/main/render.yaml) blueprint. Render serves the combined FastAPI AI backend and Vite/React production bundle at **[https://stone-cloud-oracle.onrender.com](https://stone-cloud-oracle.onrender.com)**.
+
+### 🤝 Partner Categories ($100 each):
+* **Best Use of ElevenLabs**: Employs ElevenLabs' newest `eleven_flash_v2_5` model for natural, documentary-style audio narration, enabling a true eyes-closed outdoor meditation where the screen is completely disposable.
+* **Best Use of Sentry Agent Tracing**: End-to-end tracing instrumented with `sentry-sdk` across all pipeline spans (`tabpfn.forecast`, `gemma.synthesize`, `elevenlabs.audio`) to monitor agent latency, token consumption, and edge reliability.
 
 ---
 
