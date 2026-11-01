@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Volume2, VolumeX } from 'lucide-react';
+import { Volume2, VolumeX, X, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface BreathingCoachProps {
@@ -38,7 +38,6 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
       utterance.pitch = 0.90; // Warm, peaceful tone
       utterance.volume = 0.85;
 
-      // Select gentle voice if available
       const voices = window.speechSynthesis.getVoices();
       const gentleVoice = voices.find(
         (v) =>
@@ -56,10 +55,8 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
   };
 
   useEffect(() => {
-    // Initial welcome cue
     speakCue('Close your eyes. Breathe in.');
 
-    // Total countdown timer
     const timer = setInterval(() => {
       setSecondsRemaining((prev) => {
         if (prev <= 1) {
@@ -71,7 +68,6 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
       });
     }, 1000);
 
-    // Respiration phase durations
     const cycleMs = cadenceSeconds * 1000;
     const inhaleDuration = cycleMs * 0.45;
     const holdDuration = cycleMs * 0.15;
@@ -114,7 +110,6 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
       }, cycleMs);
     };
 
-    // Start cycle loop
     const cycleTimer = setTimeout(() => {
       runCycle();
     }, 1200);
@@ -141,10 +136,10 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
 
     // 3. Firefly burst celebration
     confetti({
-      particleCount: 45,
-      spread: 75,
+      particleCount: 50,
+      spread: 80,
       origin: { y: 0.6 },
-      colors: ['#2dd4bf', '#f59e0b', '#34d399']
+      colors: ['#2dd4bf', '#f59e0b', '#34d399', '#86efac']
     });
 
     // 4. Transition to journal after chime decays
@@ -154,24 +149,24 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-40 bg-[#030604] flex flex-col items-center justify-between p-8 select-none">
-      {/* Top Bar with Voice Toggle and Dismiss */}
-      <div className="w-full flex items-center justify-between pt-4 px-2">
+    <div className="fixed inset-0 z-50 bg-[#020503] flex flex-col items-center justify-between p-6 sm:p-12 select-none backdrop-blur-3xl">
+      {/* Top Bar with Voice Toggle and Exit */}
+      <div className="w-full max-w-xl flex items-center justify-between pt-2">
         <button
           onClick={(e) => {
             e.stopPropagation();
             setVoiceEnabled(!voiceEnabled);
           }}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#132018] border border-[#2dd4bf]/25 text-xs text-slate-300 hover:text-white transition-colors"
+          className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-900/80 border border-emerald-glow/25 text-xs text-slate-300 hover:text-white transition-colors"
         >
           {voiceEnabled ? (
             <>
-              <Volume2 className="w-3.5 h-3.5 text-[#2dd4bf]" />
+              <Volume2 className="w-4 h-4 text-emerald-glow" />
               <span>Voice Guide: ON</span>
             </>
           ) : (
             <>
-              <VolumeX className="w-3.5 h-3.5 text-slate-500" />
+              <VolumeX className="w-4 h-4 text-slate-500" />
               <span>Voice Guide: OFF</span>
             </>
           )}
@@ -179,61 +174,79 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
 
         <button
           onClick={onExit}
-          className="text-xs text-slate-500 hover:text-slate-300 underline"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-forest-900/60 border border-surface-border text-xs text-slate-400 hover:text-slate-200 transition-colors"
         >
-          Exit
+          <X className="w-3.5 h-3.5" />
+          <span>Exit Session</span>
         </button>
       </div>
 
       {/* Top Quiet Guidance */}
-      <div className="text-center">
-        <p className="font-serif italic text-base text-slate-400">
+      <div className="text-center max-w-md px-4">
+        <p className="font-serif italic text-lg sm:text-xl text-slate-200 tracking-wide">
           "Eyes closed. Senses open."
         </p>
-        <p className="text-xs text-slate-500 mt-1">
-          Listen to the wind. Feel the earth.
+        <p className="text-xs sm:text-sm text-emerald-400/80 mt-1 font-sans">
+          Turn your phone down. Feel the earth beneath you.
         </p>
       </div>
 
       {/* Central Hypnotic Breathing Orb */}
-      <div className="relative w-64 h-64 flex items-center justify-center">
+      <div className="relative w-72 h-72 sm:w-96 sm:h-96 flex items-center justify-center">
         {/* Pulsing Concentric Aura */}
         <motion.div
           animate={{
-            scale: phase === 'INHALE' ? 1.45 : phase === 'HOLD' ? 1.45 : 0.85,
-            opacity: phase === 'INHALE' ? 0.9 : phase === 'HOLD' ? 0.9 : 0.4
+            scale: phase === 'INHALE' ? 1.5 : phase === 'HOLD' ? 1.5 : 0.85,
+            opacity: phase === 'INHALE' ? 0.95 : phase === 'HOLD' ? 0.95 : 0.35
           }}
           transition={{
             duration: phase === 'INHALE' ? cadenceSeconds * 0.45 : cadenceSeconds * 0.40,
             ease: 'easeInOut'
           }}
-          className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#2dd4bf]/20 to-[#f59e0b]/20 blur-xl"
+          className="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500/25 via-teal-400/20 to-firefly-gold/25 blur-3xl"
         />
 
-        {/* Breathing Ring */}
+        {/* Outer Ripple */}
         <motion.div
           animate={{
-            scale: phase === 'INHALE' ? 1.25 : phase === 'HOLD' ? 1.25 : 0.8
+            scale: phase === 'INHALE' ? 1.3 : phase === 'HOLD' ? 1.3 : 0.85,
+            opacity: phase === 'HOLD' ? 0.8 : 0.4
           }}
           transition={{
             duration: phase === 'INHALE' ? cadenceSeconds * 0.45 : cadenceSeconds * 0.40,
             ease: 'easeInOut'
           }}
-          className="w-48 h-48 rounded-full border-2 border-[#2dd4bf]/40 flex flex-col items-center justify-center bg-[#0c140f]/60 shadow-[0_0_40px_rgba(45,212,191,0.25)]"
+          className="absolute inset-6 rounded-full border border-dashed border-emerald-glow/30"
+        />
+
+        {/* Central Core Breathing Ring */}
+        <motion.div
+          animate={{
+            scale: phase === 'INHALE' ? 1.25 : phase === 'HOLD' ? 1.25 : 0.82
+          }}
+          transition={{
+            duration: phase === 'INHALE' ? cadenceSeconds * 0.45 : cadenceSeconds * 0.40,
+            ease: 'easeInOut'
+          }}
+          className="w-56 h-56 sm:w-64 sm:h-64 rounded-full border-2 border-emerald-glow/40 flex flex-col items-center justify-center bg-forest-950/80 shadow-glow-emerald-lg backdrop-blur-md"
         >
-          <span className="font-sans font-bold text-lg tracking-widest text-[#2dd4bf]">
+          <Sparkles className="w-5 h-5 text-firefly-gold mb-1 animate-pulse" />
+          <span className="font-sans font-bold text-2xl tracking-widest text-emerald-300">
             {phase}
           </span>
-          <span className="text-xs text-slate-400 mt-1">
+          <span className="text-xs text-slate-400 mt-1 font-medium">
             Breath {currentBreath} of {totalBreaths}
+          </span>
+          <span className="text-[10px] text-emerald-400/70 mt-0.5">
+            {cadenceSeconds}s Respiration
           </span>
         </motion.div>
       </div>
 
       {/* Bottom Status */}
       <div className="text-center pb-4">
-        <span className="font-sans text-xs text-slate-500">
-          {secondsRemaining}s remaining
+        <span className="font-sans text-xs sm:text-sm text-slate-400 font-medium">
+          {secondsRemaining}s remaining until singing bowl chime
         </span>
       </div>
     </div>
