@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
-import { FireflyCanvas } from './components/FireflyCanvas';
+import { FloralCanvas } from './components/FloralCanvas';
+import { BotanicalVignette } from './components/BotanicalVignette';
 import { AmbientPortal } from './components/AmbientPortal';
 import { ActionDeck } from './components/ActionDeck';
 import { RecentRevelationsSidebar } from './components/RecentRevelationsSidebar';
@@ -153,9 +154,12 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-[100dvh] w-full flex flex-col bg-botanical-mesh select-none text-emerald-950 relative overflow-x-hidden">
-      {/* Background Ambient Pollen & Fireflies across viewport */}
-      <FireflyCanvas />
+    <div className="min-h-[100dvh] w-full flex flex-col bg-botanical-mesh select-none text-emerald-50 relative overflow-x-hidden">
+      {/* Decorative Botanical Vines and Sunbeam Highlights */}
+      <BotanicalVignette />
+
+      {/* Live Drifting Floral Petals, Leaves & Golden Pollen */}
+      <FloralCanvas />
 
       {/* Responsive Top Navigation Bar */}
       <Header
@@ -166,15 +170,15 @@ export const App: React.FC = () => {
       />
 
       {/* Main Responsive Experience Grid */}
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 py-6 z-10 flex flex-col justify-center">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 py-6 z-20 flex flex-col justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Main Left / Center Stage: The Oracle Ensō Chamber */}
-          <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-center justify-between glass-panel rounded-3xl sm:rounded-[32px] p-4 sm:p-8 min-h-[560px] sm:min-h-[640px] relative overflow-hidden border border-emerald-200/80 shadow-nature">
+          <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-center justify-between glass-panel rounded-3xl sm:rounded-[32px] p-4 sm:p-8 min-h-[560px] sm:min-h-[640px] relative overflow-hidden border border-emerald-400/35 shadow-nature-lg">
             {/* Shimmering Aura Edge */}
-            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-400/60 to-transparent" />
 
-            {/* Central Ensō Portal with Drag-and-Drop */}
+            {/* Central Ensō Portal with Drag-and-Drop & Floral Wreath */}
             <AmbientPortal
               isAnalyzing={isAnalyzing}
               imagePreview={imagePreview}
