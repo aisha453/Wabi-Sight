@@ -134,12 +134,12 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
       navigator.vibrate([40, 80, 40]);
     }
 
-    // 3. Firefly burst celebration
+    // 3. Lively nature confetti burst celebration
     confetti({
-      particleCount: 50,
-      spread: 80,
+      particleCount: 55,
+      spread: 85,
       origin: { y: 0.6 },
-      colors: ['#2dd4bf', '#f59e0b', '#34d399', '#86efac']
+      colors: ['#22c55e', '#10b981', '#f59e0b', '#84cc16', '#38bdf8']
     });
 
     // 4. Transition to journal after chime decays
@@ -149,7 +149,7 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#020503] flex flex-col items-center justify-between p-6 sm:p-12 select-none backdrop-blur-3xl">
+    <div className="fixed inset-0 z-50 bg-[#072416] flex flex-col items-center justify-between p-6 sm:p-12 select-none backdrop-blur-3xl">
       {/* Top Bar with Voice Toggle and Exit */}
       <div className="w-full max-w-xl flex items-center justify-between pt-2">
         <button
@@ -157,16 +157,16 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
             e.stopPropagation();
             setVoiceEnabled(!voiceEnabled);
           }}
-          className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-900/80 border border-emerald-glow/25 text-xs text-slate-300 hover:text-white transition-colors"
+          className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-emerald-400/30 text-xs text-emerald-100 hover:bg-white/20 transition-colors"
         >
           {voiceEnabled ? (
             <>
-              <Volume2 className="w-4 h-4 text-emerald-glow" />
+              <Volume2 className="w-4 h-4 text-emerald-400" />
               <span>Voice Guide: ON</span>
             </>
           ) : (
             <>
-              <VolumeX className="w-4 h-4 text-slate-500" />
+              <VolumeX className="w-4 h-4 text-emerald-300/60" />
               <span>Voice Guide: OFF</span>
             </>
           )}
@@ -174,7 +174,7 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
 
         <button
           onClick={onExit}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-forest-900/60 border border-surface-border text-xs text-slate-400 hover:text-slate-200 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-emerald-400/20 text-xs text-emerald-200 hover:bg-white/20 transition-colors"
         >
           <X className="w-3.5 h-3.5" />
           <span>Exit Session</span>
@@ -183,10 +183,10 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
 
       {/* Top Quiet Guidance */}
       <div className="text-center max-w-md px-4">
-        <p className="font-serif italic text-lg sm:text-xl text-slate-200 tracking-wide">
+        <p className="font-serif italic text-lg sm:text-xl text-emerald-100 tracking-wide font-medium">
           "Eyes closed. Senses open."
         </p>
-        <p className="text-xs sm:text-sm text-emerald-400/80 mt-1 font-sans">
+        <p className="text-xs sm:text-sm text-emerald-300 mt-1 font-sans">
           Turn your phone down. Feel the earth beneath you.
         </p>
       </div>
@@ -203,7 +203,7 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
             duration: phase === 'INHALE' ? cadenceSeconds * 0.45 : cadenceSeconds * 0.40,
             ease: 'easeInOut'
           }}
-          className="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500/25 via-teal-400/20 to-firefly-gold/25 blur-3xl"
+          className="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-400/30 via-teal-300/25 to-amber-300/30 blur-3xl"
         />
 
         {/* Outer Ripple */}
@@ -216,7 +216,7 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
             duration: phase === 'INHALE' ? cadenceSeconds * 0.45 : cadenceSeconds * 0.40,
             ease: 'easeInOut'
           }}
-          className="absolute inset-6 rounded-full border border-dashed border-emerald-glow/30"
+          className="absolute inset-6 rounded-full border-2 border-dashed border-emerald-400/40"
         />
 
         {/* Central Core Breathing Ring */}
@@ -228,16 +228,16 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
             duration: phase === 'INHALE' ? cadenceSeconds * 0.45 : cadenceSeconds * 0.40,
             ease: 'easeInOut'
           }}
-          className="w-56 h-56 sm:w-64 sm:h-64 rounded-full border-2 border-emerald-glow/40 flex flex-col items-center justify-center bg-forest-950/80 shadow-glow-emerald-lg backdrop-blur-md"
+          className="w-56 h-56 sm:w-64 sm:h-64 rounded-full border-2 border-emerald-400/50 flex flex-col items-center justify-center bg-[#092e1c]/90 shadow-[0_0_50px_rgba(16,185,129,0.35)] backdrop-blur-md"
         >
-          <Sparkles className="w-5 h-5 text-firefly-gold mb-1 animate-pulse" />
-          <span className="font-sans font-bold text-2xl tracking-widest text-emerald-300">
+          <Sparkles className="w-5 h-5 text-amber-400 mb-1 animate-pulse" />
+          <span className="font-sans font-extrabold text-3xl tracking-widest text-emerald-300">
             {phase}
           </span>
-          <span className="text-xs text-slate-400 mt-1 font-medium">
+          <span className="text-xs text-emerald-100 mt-1 font-medium">
             Breath {currentBreath} of {totalBreaths}
           </span>
-          <span className="text-[10px] text-emerald-400/70 mt-0.5">
+          <span className="text-[10px] text-emerald-400 mt-0.5 font-bold">
             {cadenceSeconds}s Respiration
           </span>
         </motion.div>
@@ -245,7 +245,7 @@ export const BreathingCoach: React.FC<BreathingCoachProps> = ({
 
       {/* Bottom Status */}
       <div className="text-center pb-4">
-        <span className="font-sans text-xs sm:text-sm text-slate-400 font-medium">
+        <span className="font-sans text-xs sm:text-sm text-emerald-200/90 font-medium">
           {secondsRemaining}s remaining until singing bowl chime
         </span>
       </div>

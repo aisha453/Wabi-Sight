@@ -32,18 +32,18 @@ export const FireflyCanvas: React.FC = () => {
     };
     window.addEventListener('resize', handleResize);
 
-    // Initialize 28 firefly particles with soft organic emerald, amber, and mint colors
-    const colors = ['#2dd4bf', '#f59e0b', '#34d399', '#fde047', '#86efac'];
-    const particles: Particle[] = Array.from({ length: 28 }).map(() => ({
+    // Initialize lively golden pollen, dew drops, and leaf-green particles
+    const colors = ['#10b981', '#f59e0b', '#84cc16', '#22c55e', '#eab308', '#14b8a6'];
+    const particles: Particle[] = Array.from({ length: 30 }).map(() => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      radius: 1.2 + Math.random() * 2.2,
+      radius: 1.5 + Math.random() * 2.2,
       color: colors[Math.floor(Math.random() * colors.length)],
-      alpha: 0.2 + Math.random() * 0.7,
-      baseAlpha: 0.3 + Math.random() * 0.5,
+      alpha: 0.25 + Math.random() * 0.65,
+      baseAlpha: 0.35 + Math.random() * 0.45,
       freq: 0.02 + Math.random() * 0.04,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35
     }));
 
     let t = 0;
@@ -63,16 +63,16 @@ export const FireflyCanvas: React.FC = () => {
 
         // Sinusoidal pulsation
         const pulse = Math.sin(t * p.freq) * 0.35;
-        const currentAlpha = Math.max(0.05, Math.min(0.9, p.baseAlpha + pulse));
+        const currentAlpha = Math.max(0.1, Math.min(0.85, p.baseAlpha + pulse));
 
-        // Draw soft glowing orb
+        // Draw soft glowing orb with subtle radiant shadow
         ctx.save();
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
         ctx.globalAlpha = currentAlpha;
         ctx.shadowColor = p.color;
-        ctx.shadowBlur = p.radius * 7;
+        ctx.shadowBlur = p.radius * 6;
         ctx.fill();
         ctx.restore();
       });

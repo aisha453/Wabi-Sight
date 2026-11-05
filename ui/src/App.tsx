@@ -153,8 +153,8 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-[100dvh] w-full flex flex-col bg-botanical-mesh select-none text-slate-100 relative overflow-x-hidden">
-      {/* Background Ambient Fireflies across viewport */}
+    <div className="min-h-[100dvh] w-full flex flex-col bg-botanical-mesh select-none text-emerald-950 relative overflow-x-hidden">
+      {/* Background Ambient Pollen & Fireflies across viewport */}
       <FireflyCanvas />
 
       {/* Responsive Top Navigation Bar */}
@@ -170,9 +170,9 @@ export const App: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Main Left / Center Stage: The Oracle Ensō Chamber */}
-          <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-center justify-between glass-panel rounded-3xl sm:rounded-[32px] p-4 sm:p-8 min-h-[560px] sm:min-h-[640px] relative overflow-hidden">
+          <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-center justify-between glass-panel rounded-3xl sm:rounded-[32px] p-4 sm:p-8 min-h-[560px] sm:min-h-[640px] relative overflow-hidden border border-emerald-200/80 shadow-nature">
             {/* Shimmering Aura Edge */}
-            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-emerald-glow/40 to-transparent" />
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />
 
             {/* Central Ensō Portal with Drag-and-Drop */}
             <AmbientPortal
